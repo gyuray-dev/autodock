@@ -3,6 +3,7 @@ FROM ros:noetic
 # only copy autodock_core and autodock_examples repo
 COPY autodock_core /root/catkin_ws/src/autodock_core
 COPY autodock_examples /root/catkin_ws/src/autodock_examples
+COPY fiducials /root/catkin_ws/src/fiducials
 
 SHELL ["bash", "-c"]
 
@@ -11,8 +12,8 @@ RUN apt-get update && apt-get install \
   git -y 
 
 # install ros fiducial repo
-RUN cd /root/catkin_ws/src  && \
-  git clone https://github.com/UbiquityRobotics/fiducials.git
+# RUN cd /root/catkin_ws/src  && \
+# git clone https://github.com/gyuray-dev/autodock.git
 
 # install dependencies
 # Note: force return as true, as fiducial has some non python3 deps
